@@ -41,12 +41,18 @@ nav {
     text-align: center;
     color: black;
     margin-top: 70px; /* Adjust as needed */
-}
-
+    
 .hero-content {
     max-width: 600px;
-    padding: 0 20px; /* Add padding to center content within hero section */
+    padding: 20px; /* Adjust padding for spacing */
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .hero h1 {
     font-size: 3rem;
@@ -59,9 +65,9 @@ nav {
 }
 
 .hero .logo {
-    text-align: center; /* Center align the logo */
-    margin-bottom: 20px; /* Adjust spacing between logo and button */
+    margin-top: 20px; /* Adjust spacing between text and logo */
 }
+
 
 .hero .logo img {
     height: auto; /* Adjust the height as necessary */
