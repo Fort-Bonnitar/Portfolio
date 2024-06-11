@@ -45,15 +45,16 @@ nav {
 
 .hero-content {
     max-width: 600px;
-    text-align: center;
+}
+
+.hero .logo {
+    text-align: center; /* Center align the logo */
 }
 
 .hero .logo img {
-    height: 600px; /* Adjust the height as necessary */
+    height: auto; /* Adjust the height as necessary */
+    width: 150px; /* Set a fixed width */
     margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .hero h1 {
