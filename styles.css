@@ -158,5 +158,5 @@ footer {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000/* Ensure footer stays on top of other content */
+    z-index: 1000;
 }
