@@ -66,6 +66,7 @@ nav {
 
 .hero .logo {
     margin-top: 20px; /* Adjust spacing between text and logo */
+    text-align: center; /* Ensure the logo is centered */
 }
 
 .hero .logo img {
@@ -89,6 +90,7 @@ nav {
 .cta-button:hover {
     background: #e64a19;
 }
+
 
 section {
     padding: 4rem 2rem;
