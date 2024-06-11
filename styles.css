@@ -41,7 +41,8 @@ nav {
     text-align: center;
     color: black;
     margin-top: 70px; /* Adjust as needed */
-    
+}
+
 .hero-content {
     max-width: 600px;
     padding: 20px; /* Adjust padding for spacing */
@@ -52,7 +53,6 @@ nav {
     justify-content: center;
     align-items: center;
 }
-
 
 .hero h1 {
     font-size: 3rem;
@@ -67,7 +67,6 @@ nav {
 .hero .logo {
     margin-top: 20px; /* Adjust spacing between text and logo */
 }
-
 
 .hero .logo img {
     height: auto; /* Adjust the height as necessary */
@@ -90,7 +89,6 @@ nav {
 .cta-button:hover {
     background: #e64a19;
 }
-
 
 section {
     padding: 4rem 2rem;
@@ -159,3 +157,4 @@ footer {
     width: 100%;
     bottom: 0;
 }
+6
