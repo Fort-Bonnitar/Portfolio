@@ -40,21 +40,12 @@ nav {
     align-items: center;
     text-align: center;
     color: black;
-    margin-top: 70px;
+    margin-top: 70px; /* Adjust as needed */
 }
 
 .hero-content {
     max-width: 600px;
-}
-
-.hero .logo {
-    text-align: center; /* Center align the logo */
-}
-
-.hero .logo img {
-    height: auto; /* Adjust the height as necessary */
-    width: 150px; /* Set a fixed width */
-    margin-bottom: 20px;
+    padding: 0 20px; /* Add padding to center content within hero section */
 }
 
 .hero h1 {
@@ -65,6 +56,19 @@ nav {
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
+}
+
+.hero .logo {
+    text-align: center; /* Center align the logo */
+    margin-bottom: 20px; /* Adjust spacing between logo and button */
+}
+
+.hero .logo img {
+    height: auto; /* Adjust the height as necessary */
+    width: 250px; /* Set a fixed width for the logo */
+    max-width: 100%; /* Ensure the logo scales responsively */
+    display: block;
+    margin: 0 auto; /* Center align horizontally */
 }
 
 .cta-button {
@@ -80,6 +84,7 @@ nav {
 .cta-button:hover {
     background: #e64a19;
 }
+
 
 section {
     padding: 4rem 2rem;
