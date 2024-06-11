@@ -157,6 +157,5 @@ footer {
     padding: 1rem 0;
     position: fixed;
     width: 100%;
-    top: 0;
-    z-index: 1000;
+    bottom: 0; /* Place footer at the bottom of the viewport */
 }
