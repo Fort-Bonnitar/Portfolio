@@ -45,11 +45,15 @@ nav {
 
 .hero-content {
     max-width: 600px;
+    text-align: center;
 }
 
 .hero .logo img {
-    height: 100px; /* Adjust the height as necessary */
+    height: 600px; /* Adjust the height as necessary */
     margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero h1 {
@@ -100,10 +104,6 @@ section {
 #coverage ul {
     list-style: none;
     padding: 0;
-}
-
-#coverage li {
-    margin: 0.5rem 0;
 }
 
 form {
