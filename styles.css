@@ -17,16 +17,8 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.logo img {
-    height: 50px;
-    /* Adjust the height as necessary */
 }
 
 .nav-links {
@@ -41,18 +33,23 @@ nav {
 }
 
 .hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
+    background: #f4f4f4; /* Light background for the hero section */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: black;
     margin-top: 70px;
 }
 
 .hero-content {
     max-width: 600px;
+}
+
+.hero .logo img {
+    height: 100px; /* Adjust the height as necessary */
+    margin-bottom: 20px;
 }
 
 .hero h1 {
