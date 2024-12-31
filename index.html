@@ -1,55 +1,131 @@
 <!DOCTYPE html>
-<html lang="en" >
-
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Forts Portfolio</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./buttons.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Search Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Food Search Tool</h1>
+        <label for="foodDropdown">Select Food:</label>
+        <select id="foodDropdown">
+            <option value="">--Select Food--</option>
+        </select>
 
-<div id="magic"></div>
-<div class="playground">
-  <div class="bottomPosition">
-    <h1 class="special">Fortbonnitar<br><span class="minText"></span>Unreal Engine Developer</span></h1>
-  </div>
-</div>
+        <br><br>
 
+        <label for="foodSearch">Search Food:</label>
+        <input type="text" id="foodSearch" placeholder="Type food name">
 
+        <br><br>
 
-<!-- partial:index.partial.html -->
-<script type="x-shader/x-vertex" id="vertexshader">
-  attribute float size;
-  attribute vec3 customColor;
-  varying vec3 vColor;
-  void main() {
-    vColor = customColor;
-    vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-    gl_PointSize = size * ( 300.0 / -mvPosition.z );
-    gl_Position = projectionMatrix * mvPosition;}
-</script>
+        <table id="foodTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Food</th>
+                    <th>Pips</th>
+                    <th>Bonus</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-<script type="x-shader/x-fragment" id="fragmentshader">
-uniform vec3 color;
-uniform sampler2D pointTexture;
-varying vec3 vColor;
-void main() {
-  gl_FragColor = vec4( color * vColor, 1.0 );
-  gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );}
-</script>
+    <script>
+        // Food data from the CSV file
+        const foodData = [
+            { food: "Apple", pips: 2, bonus: 0 },
+            { food: "Baked Potato", pips: 4, bonus: 0 },
+            { food: "Baked Squash Chunks", pips: 6, bonus: 1 },
+            { food: "Banana", pips: 4, bonus: 0 },
+            { food: "Bean Burrito", pips: 3, bonus: 7 },
+            { food: "Bean Taco", pips: 2, bonus: 10 },
+            { food: "Best Bite of Burger", pips: 3, bonus: 9 },
+            { food: "Bowl of Carnitas", pips: 5, bonus: 2 },
+            { food: "Bowl of Chilli Con Carne", pips: 5, bonus: 1 },
+            { food: "Bowl of Cooked Rice", pips: 5, bonus: 2 },
+            { food: "Bowl of Fish Stew", pips: 6, bonus: 1 },
+            { food: "Bowl of French Onion Soup", pips: 5, bonus: 4 },
+            { food: "Bowl of Gooseberries", pips: 1, bonus: 0 },
+            { food: "Bowl of Green Beans", pips: 3, bonus: 0 },
+            { food: "Bowl of Honey", pips: 5, bonus: 1 },
+            { food: "Bowl of Maple Syrup", pips: 1, bonus: 7 }
+            // Add more food items here as needed
+        ];
 
+        const foodDropdown = document.getElementById('foodDropdown');
+        const foodSearch = document.getElementById('foodSearch');
+        const foodTable = document.getElementById('foodTable');
+        const tableBody = foodTable.querySelector('tbody');
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js'></script><script  src="./script.js"></script>
+        // Populate dropdown menu
+        foodData.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.food;
+            option.textContent = item.food;
+            foodDropdown.appendChild(option);
+        });
 
-<!-- partial -->
-<div class="vertical-box">
-  <a href="" class="button2 b-pink rot-90">News</a>
-  <a href="./projects.html" class="button2 b-pink rot-90" target="_blank">Prior Work</a>
-  <a href="" class="button2 b-pink rot-90">About Me</a>
-  <a href="" class="button2 b-pink rot-90">Contact</a>
-</div>
+        // Function to display data in the table
+        function displayData(data) {
+            tableBody.innerHTML = '';
 
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.food}</td>
+                    <td>${item.pips}</td>
+                    <td>${item.bonus}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            foodTable.style.display = data.length ? 'table' : 'none';
+        }
+
+        // Event listener for dropdown selection
+        foodDropdown.addEventListener('change', (e) => {
+            const selectedFood = e.target.value;
+            if (selectedFood) {
+                const result = foodData.filter(item => item.food === selectedFood);
+                displayData(result);
+            } else {
+                foodTable.style.display = 'none';
+            }
+        });
+
+        // Event listener for search input
+        foodSearch.addEventListener('input', (e) => {
+            const searchValue = e.target.value.toLowerCase();
+            const result = foodData.filter(item => item.food.toLowerCase().includes(searchValue));
+            displayData(result);
+        });
+    </script>
 </body>
 </html>
